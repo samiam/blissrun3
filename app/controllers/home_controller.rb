@@ -3,7 +3,7 @@
 # Test side w/images blocked
 # Google analytics?
 
-class HomeController < ActionController::Base
+class HomeController < ApplicationController
 
 #  before_filter :login
   before_filter :redirect_to_www
