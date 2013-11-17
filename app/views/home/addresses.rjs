@@ -1,7 +1,6 @@
-if @captcha_ans
+- if @captcha_ans
   page.hide 'recaptcha_form'
   page.visual_effect :blind_down, 'recaptcha_blinddown'
   page.replace_html 'recaptcha_blinddown', ENV['EMAIL_ADDRESSES']
-else
+-else
   page.reload
-end

@@ -1,5 +1,5 @@
-/ Efficiency: only load this when hit this page
-= javascript_include_tag 'application'
+/ Efficiency: only load javascript on this page
+= javascript_include_tag 'application', :debug => true
 
 .container
   #left
@@ -16,14 +16,12 @@
 
     %div#recaptcha_form
 
-      %h2 Email Addresses (temporarily disabled)
-      /
-        To help us eliminate as much spam as possible we use a captcha.
-        Please type in the string below to show our email addresses.
+      %h2 Email Addresses
+      To help us eliminate as much spam as possible we use a captcha.
+      Please type in the string below to show our email addresses.
 
-    /
       %p
-      = form_tag url_for('addresses') do
+      = form_tag url_for('addresses'), :remote => true do
         = recaptcha_tags(:display => { :theme => 'clean' })
         = submit_tag("I'm Human")
 
@@ -35,5 +33,5 @@
     .peace_hat_small
 
 :javascript
-  $('recaptcha_response_field').focus();
-  $('recaptcha_response_field').select();
+  $('#recaptcha_response_field').focus();
+  $('#recaptcha_response_field').select();
